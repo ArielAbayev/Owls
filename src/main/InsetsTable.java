@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class InsetsTable {
 
-	private ArrayList<Duty> insetsTable[];
-	private final int tableLength = 7;
+	public ArrayList<Duty> insetsTable[];
+	public final int tableLength = 7;
 	
 	public InsetsTable() {
 	
@@ -13,5 +13,7 @@ public class InsetsTable {
 			insetsTable[i] = new ArrayList<Duty>();
 		}
 	}
+	
+	
 	
 }
