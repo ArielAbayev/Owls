@@ -23,4 +23,9 @@ public class Person {
 	}
 	
 
+	public void addDemand(Duty duty) {
+		demands.add(duty);
+
+	}
+
 }
