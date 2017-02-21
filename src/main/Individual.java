@@ -15,7 +15,7 @@ public class Individual implements Comparable<Individual>{
 	}
 	
 	public void calcFitness() {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
