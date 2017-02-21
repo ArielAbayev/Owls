@@ -4,16 +4,20 @@ import java.util.ArrayList;
 
 public class InsetsTable {
 
-	public ArrayList<Duty> insetsTable[];
-	public final int tableLength = 7;
+	public ArrayList<ArrayList<Duty>> insetsTable;
+	public static final int tableLength = 7;
 	
-	public InsetsTable() {
-	
+	public InsetsTable()  {
+		
+		insetsTable = new ArrayList<ArrayList<Duty>>(tableLength);
+		
 		for(int i=0; i< tableLength; i++){
-			insetsTable[i] = new ArrayList<Duty>();
+			insetsTable.set(i, new ArrayList<Duty>());
 		}
 	}
 	
-	
+	public InsetsTable(ArrayList<ArrayList<Duty>> dutyListArr) {
+		insetsTable = dutyListArr;
+	}
 	
 }

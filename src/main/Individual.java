@@ -1,6 +1,6 @@
 package main;
 
-public class Individual {
+public class Individual implements Comparable<Individual>{
 
 	private static double MUTATION_RATE = 0.01;
 	
@@ -8,9 +8,9 @@ public class Individual {
 	
 	private int fitness;
 	
-	public Individual() {
+	public Individual(InsetsTable insetsTable) {
 		
-		insetsTable_individual = new InsetsTable();
+		insetsTable_individual = insetsTable;
 		
 	}
 	
@@ -22,7 +22,7 @@ public class Individual {
 	public void mutate() {
 		
 		for (int i = 0; i < insetsTable_individual.tableLength ; i++) {
-			for(Duty duty : this.insetsTable_individual.insetsTable[i]) {
+			for(Duty duty : this.insetsTable_individual.insetsTable.get(i)) {
 				
 				if(Math.random() < MUTATION_RATE) {
 			//		duty.name = chooseRandomName();
@@ -31,6 +31,19 @@ public class Individual {
 			}
 		}
 		
+	}
+	
+	public InsetsTable getInsetsTable() {
+		return insetsTable_individual;
+	}
+
+	public int getFitness() {
+		return fitness;
+	}
+	
+	@Override
+	public int compareTo(Individual other) {
+		return this.fitness - other.fitness;
 	}
 
 }
