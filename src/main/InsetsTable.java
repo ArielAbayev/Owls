@@ -29,7 +29,7 @@ public class InsetsTable {
 		String str = "";
 		
 		for(int d = 0; d < tableLength; d++) {
-			str += "Day";
+			str += "Day " + d + ": \n";
 			for (Duty duty : insetsTable.get(d)) {
 				str += "Duty " + duty.getDutyStart() + "-" + duty.getDutyEnd() + " done by " + duty.getPerson().getName() + "\n";
 			}

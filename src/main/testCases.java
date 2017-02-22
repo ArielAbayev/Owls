@@ -58,13 +58,13 @@ public class testCases {
 		insets.insetsTable.get(6).add(du11);
 		insets.insetsTable.get(6).add(du12);
 		
-		pop = new Population(1, insets, pe);
+		pop = new Population(2, insets, pe);
 		
 		for(int i=0 ; i<pop.individuals.length; i++){
-//			System.out.println(insets.insetsTable.get(i));
+
 			for(int j = 0; j < 7; j++) {
 				for(Duty d : pop.individuals[i].insetsTable_individual.insetsTable.get(j)) {
-					System.out.println(d.getPerson().getName());
+					//System.out.println(d.getPerson().getName());
 				}
 			}
 			
@@ -73,9 +73,9 @@ public class testCases {
 		pop.calcFitness(pe);
 		
 		for(int i=0 ; i<pop.individuals.length; i++){
-//			System.out.println(insets.insetsTable.get(i));
-			System.out.println(pop.individuals[i].fitness);
-			
+
+			System.out.println(pop.individuals[i].insetsTable_individual);
+			System.out.println("\n\n");
 		}
 		
 		

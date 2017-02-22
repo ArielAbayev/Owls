@@ -16,11 +16,15 @@ public class Population {
 		personList = pers;
 
 		for (int i = 0; i < size; i++) {
-			InsetsTable new_insetsTable = _empty_insetsTable.copy();
+			InsetsTable new_insetsTable = new InsetsTable((ArrayList<ArrayList<Duty>>) _empty_insetsTable.insetsTable.clone());
+			
+			System.out.println(new_insetsTable.insetsTable.get(0).get(0).getPerson());
+			System.out.println(_empty_insetsTable.insetsTable.get(0).get(0).getPerson());
 
 			for (int j = 0; j < InsetsTable.tableLength; j++) {
 				for (Duty duty : new_insetsTable.insetsTable.get(j)) {
 					duty.setPerson(randomPerson());
+					System.out.println(duty.getPerson().getName());
 				}
 			}
 			individuals[i] = new Individual(new_insetsTable);
