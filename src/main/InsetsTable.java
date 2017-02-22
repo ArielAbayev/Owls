@@ -19,5 +19,11 @@ public class InsetsTable {
 	public InsetsTable(ArrayList<ArrayList<Duty>> dutyListArr) {
 		insetsTable = dutyListArr;
 	}
+
+	@SuppressWarnings("unchecked")
+	public InsetsTable copy() {
+		// TODO Auto-generated method stub
+		return new InsetsTable((ArrayList<ArrayList<Duty>>) insetsTable.clone());
+	}
 	
 }

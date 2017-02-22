@@ -46,7 +46,7 @@ public class Population {
 		
 		for (int i = 1; i < individuals.length; i++) {
 			int n = (int)(individuals[i].getFitness() * 100);
-			for (int j = 0; i < n; j++) {
+			for (int j = 0; j < n; j++) {
 				matingpool.add(individuals[i]);
 			}
 		}
