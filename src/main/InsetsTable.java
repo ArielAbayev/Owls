@@ -9,10 +9,10 @@ public class InsetsTable {
 	
 	public InsetsTable()  {
 		
-		insetsTable = new ArrayList<ArrayList<Duty>>(tableLength);
+		insetsTable = new ArrayList<ArrayList<Duty>>();
 		
 		for(int i=0; i< tableLength; i++){
-			insetsTable.set(i, new ArrayList<Duty>());
+			insetsTable.add(new ArrayList<Duty>());
 		}
 	}
 	
@@ -22,8 +22,21 @@ public class InsetsTable {
 
 	@SuppressWarnings("unchecked")
 	public InsetsTable copy() {
-		// TODO Auto-generated method stub
 		return new InsetsTable((ArrayList<ArrayList<Duty>>) insetsTable.clone());
+	}
+	
+	public String toString() {
+		String str = "";
+		
+		for(int d = 0; d < tableLength; d++) {
+			str += "Day";
+			for (Duty duty : insetsTable.get(d)) {
+				str += "Duty " + duty.getDutyStart() + "-" + duty.getDutyEnd() + " done by " + duty.getPerson().getName() + "\n";
+			}
+		}
+		
+		
+		return str;
 	}
 	
 }

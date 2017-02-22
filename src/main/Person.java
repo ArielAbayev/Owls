@@ -1,11 +1,10 @@
 package main;
 
-import java.util.ArrayList;
-
 public class Person {
 	
 	private String name;
 	static int ID = 0;
+	private int personID =0;
 	private int absentOnDay;
 	private int dutiesLastMonth = 0;
 	
@@ -13,7 +12,9 @@ public class Person {
 		
 		this.setName(name);
 		this.dutiesLastMonth = dutiesLastMonth;
+		absentOnDay = 0;
 		ID ++;
+		personID = ID;
 	}
 
 	public String getName() {
@@ -24,11 +25,11 @@ public class Person {
 		this.name = name;
 	}
 	
-	public static int getID() {
-		return ID;
+	public int getPersonID() {
+		return personID;
 	}
-	public static void setID(int iD) {
-		ID = iD;
+	public void setPersonID(int iD) {
+		personID = iD;
 	}
 
 	public int getAbsentOnDay() {

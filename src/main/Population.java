@@ -1,15 +1,30 @@
 package main;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Population {
 	
-	private Individual[] individuals;
+	public Individual[] individuals;
+	public ArrayList<Person> personList;
+	public InsetsTable emptyInsetsTable;
+	public int size;
 	
-	public Population(int size) {
-		individuals = new Individual[size]; //size might be const
+	public Population(int size, InsetsTable _empty_insetsTable, ArrayList<Person> pers) {
+		individuals = new Individual[size];
+		this.size = size;
+		emptyInsetsTable = _empty_insetsTable;
+		personList = pers;
+
+		for (int i = 0; i < size; i++) {
+			InsetsTable new_insetsTable = _empty_insetsTable.copy();
+
+			for (int j = 0; j < InsetsTable.tableLength; j++) {
+				for (Duty duty : new_insetsTable.insetsTable.get(j)) {
+					duty.setPerson(randomPerson());
+				}
+			}
+			individuals[i] = new Individual(new_insetsTable);
+		}
 	}
 	
 	public void calcFitness(ArrayList<Person> personsList) {
@@ -17,15 +32,16 @@ public class Population {
 			ind.calcFitness(personsList);
 		}
 	}
+	   
+    private Person randomPerson() {
+        int rnd = (int)(Math.random() * personList.size());
+        return personList.get(rnd);
+    }
 	
 	
 	
 	private Individual chooseParent() {
 		
-		
-		// 0.1 0.2 0.3 0.4
-		// 0.1 0.3 0.6 1
-
 		Individual parent;
 		
 		int sumOfFitness = 0;
@@ -57,12 +73,13 @@ public class Population {
 		return parent;
 }
 	
+	@SuppressWarnings("unchecked")
 	public Population generateNewPop() {
 		
 		Individual parent1, parent2, child;
 		InsetsTable parent1_insetsTable, parent2_insetsTable, child_insetsTable;
 		
-		Population newPop = new Population(individuals.length);
+		Population newPop = new Population(size, emptyInsetsTable, personList);
 		
 		for (int i = 0; i < individuals.length; i++) {
 			

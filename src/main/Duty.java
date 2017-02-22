@@ -23,10 +23,10 @@ public class Duty {
 	}
 	
 	public void setPerson(Person person) {
-		this.person.setAbsentOnDay(person.getAbsentOnDay());
-		this.person.setDutiesLastMonth(person.getDutiesLastMonth());
-		this.person.setID(person.getID());
-		this.person.setName(person.getName());
+//		this.person.setAbsentOnDay(person.getAbsentOnDay());
+//		this.person.setDutiesLastMonth(person.getDutiesLastMonth());
+//		this.person.setPersonID(person.getPersonID());
+//		this.person.setName(person.getName());
 		
 		this.person = person;
 	}
