@@ -6,11 +6,13 @@ public class Person {
 	
 	private String name;
 	static int ID = 0;
-	ArrayList<Duty> demands;
+	private int absentOnDay;
+	private int dutiesLastMonth = 0;
 	
-	public Person(String name){
+	public Person(String name,int dutiesLastMonth){
 		
 		this.setName(name);
+		this.dutiesLastMonth = dutiesLastMonth;
 		ID ++;
 	}
 
@@ -22,10 +24,27 @@ public class Person {
 		this.name = name;
 	}
 	
+	public static int getID() {
+		return ID;
+	}
+	public static void setID(int iD) {
+		ID = iD;
+	}
 
-	public void addDemand(Duty duty) {
-		demands.add(duty);
-
+	public int getAbsentOnDay() {
+		return absentOnDay;
+	}
+	
+	public int getDutiesLastMonth() {
+		return dutiesLastMonth;
+	}
+	
+	public void setAbsentOnDay(int absentOnDay) {
+		this.absentOnDay = absentOnDay;
+	}
+	
+	public void setDutiesLastMonth(int dutiesLastMonth) {
+		this.dutiesLastMonth = dutiesLastMonth;
 	}
 
 }

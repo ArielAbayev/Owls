@@ -3,45 +3,42 @@ package main;
 import java.util.ArrayList;
 
 public class GeneticAlgoMain {
-
+	
 	private static int POPULATION_SIZE = 50;
-	Object personsList[][];
 	public int numOfPersons = 10;
+	private static int generation = 0;
+	
 	
 	public static void main(String[] args) {
 		
 		Population pop = new Population(POPULATION_SIZE);
-		
-	//	createStaticTable();
-		
+		ArrayList<Person> personsList = new ArrayList<Person>();
+
+		personsList.add(new Person("almog", 144));
+		personsList.add(new Person("Ofir", 0));
+		personsList.add(new Person("Luli", 6));
+		personsList.add(new Person("Dor", 4));
+		personsList.add(new Person("Fibaht", 2));
+		personsList.add(new Person("Ariel", 1));
+		personsList.add(new Person("Ariel1", 1));
+		personsList.add(new Person("Ariel2", 10));
+		personsList.add(new Person("Ariel3", 1));
+		personsList.add(new Person("Ariel4", 1));
 		
 		while(true) {
-			pop.calcFitness();
+			
+			pop.calcFitness(personsList); 
+			if(generation>20)     //20 instead of 200
+				break;
 			Population newPop = pop.generateNewPop();
-			newPop.mutate();
+			newPop.mutate(personsList);
 			pop = newPop;
+			generation++;
 		}
 		
 
 	}
 
-	/*public static void createStaticTable(){
-		
-		Object personsList[][] = { { 1, "Almog", 1, 0}, { 2, "Stav", 0, 1}, { 3, "Dan", 0, 1}
-		, { 4, "Dor", 2, 1}, { 5, "Ran", 0, 1}, { 6, "Ariel", 0, 1}};
-	}
-	*/
-	public void generatePersons(){
-		
-		ArrayList<Person> personsList = null;
-		Person p;
-		for(int i=0; i< numOfPersons; i++){
-			p = new Person("Almog");
-			personsList.add(p);
-		//	p.addDemand();
-		}
-	}
-	
 	
 	
 }

@@ -8,6 +8,7 @@ public class Duty {
 	private Person person;
 	private int dutyStart;
 	private int dutyEnd;
+	private int dutyDay;
 	private int dutyType;
 	
 	public Duty(Person person, int dutyStart, int dutyEnd, int dutyType) {
@@ -22,9 +23,15 @@ public class Duty {
 	}
 	
 	public void setPerson(Person person) {
+		this.person.setAbsentOnDay(person.getAbsentOnDay());
+		this.person.setDutiesLastMonth(person.getDutiesLastMonth());
+		this.person.setID(person.getID());
+		this.person.setName(person.getName());
+		
 		this.person = person;
 	}
-	
+
+
 	public void setDutyStart(int dutyStart) {
 		this.dutyStart = dutyStart;
 	}
@@ -48,6 +55,12 @@ public class Duty {
 	public int getDutyType() {
 		return dutyType;
 	}
+	
+	public int getDutyDay() {
+		return dutyDay;
+	}
+	
+	
 
 	
 }

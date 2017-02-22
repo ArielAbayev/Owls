@@ -9,12 +9,12 @@ public class Population {
 	private Individual[] individuals;
 	
 	public Population(int size) {
-		individuals = new Individual[size];
+		individuals = new Individual[size]; //size might be const
 	}
 	
-	public void calcFitness() {
+	public void calcFitness(ArrayList<Person> personsList) {
 		for(Individual ind : individuals) {
-			ind.calcFitness();
+			ind.calcFitness(personsList);
 		}
 	}
 	
@@ -25,9 +25,7 @@ public class Population {
 		
 		// 0.1 0.2 0.3 0.4
 		// 0.1 0.3 0.6 1
-		
-		
-		
+
 		Individual parent;
 		
 		int sumOfFitness = 0;
@@ -96,10 +94,12 @@ public class Population {
 		return newPop;
 	}
 	
-	public void mutate() {
+	public void mutate(ArrayList<Person> personsList) {
 		for(Individual ind : individuals) {
-			ind.mutate();
+			ind.mutate(personsList);
 		}
 	}
+	
+	
 
 }
